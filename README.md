@@ -5,9 +5,9 @@
 
 
 
-<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Foldit&size=32&pause=1000&color=1D2EF7&background=FF60F100&center=true&vCenter=true&width=435&lines=Codezilla+Cours" alt="Typing SVG" /></a>
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Foldit&size=32&pause=1000&color=1D2EF7&background=FF60F100&center=true&vCenter=true&width=435&lines=Second+Year+-CS2025" alt="Typing SVG" /></a>
 
-<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Bungee+Spice&size=30&pause=1000&color=1D2EF7&background=FF60F100&center=true&vCenter=true&width=435&lines=Online+Store+With+OOP" alt="Typing SVG" /></a>
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Bungee+Spice&size=30&pause=1000&color=1D2EF7&background=FF60F100&center=true&vCenter=true&width=435&lines=Second+Year+-CS2025" alt="Typing SVG" /></a>
 
 <img src="https://github.com/hikodz/Online-Store-OOP/assets/134459251/80806049-90e4-4d27-aa79-2d2254a810aa" alt="python" width="400" height="400"/>
 
