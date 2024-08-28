@@ -17,7 +17,7 @@
 
 
 
-## Description
+## Descriptions
 This repository contains all my projects, assignments, and course materials for the second year of my Computer Science degree program (CS2025) at [ University Laghout CS ]. It serves as a comprehensive collection of my academic work and progress throughout the year 2023-2024.
 
 ## Table of Contents
