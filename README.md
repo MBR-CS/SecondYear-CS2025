@@ -15,7 +15,6 @@
 
 
 
-# SecondYear-CS2025
 
 
 ## Description
