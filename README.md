@@ -52,7 +52,7 @@ Here are some of the key projects included in this repository:
 While this is primarily a personal academic repository, constructive feedback and suggestions are welcome. Please open an issue to discuss any changes you'd like to propose.
 
 ## Contact
-[Mohamed] - [m.bloul.inf@lagh-univ.dz]
+[https://www.linkedin.com/in/bloul-mohamed-387692297/] - [m.bloul.inf@lagh-univ.dz]
 
 Project Link: https://github.com/Bloul-Mohamed/SecondYear-CS2025
 
