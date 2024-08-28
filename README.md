@@ -1,7 +1,7 @@
 # SecondYear-CS2025
 
 ## Description
-This repository contains all my projects, assignments, and course materials for the second year of my Computer Science degree program (CS2025) at [Your University Name]. It serves as a comprehensive collection of my academic work and progress throughout the year 2023-2024.
+This repository contains all my projects, assignments, and course materials for the second year of my Computer Science degree program (CS2025) at [ University Laghout CS ]. It serves as a comprehensive collection of my academic work and progress throughout the year 2023-2024.
 
 ## Table of Contents
 - [Course Structure](#course-structure)
@@ -27,9 +27,9 @@ Each directory contains relevant code, documentation, and resources for the resp
 Here are some of the key projects included in this repository:
 
 1. Data Structures Implementation (C++)
-2. Algorithmic Problem Solving (Python)
-3. Database Management System (SQL, Java)
-4. Network Protocol Simulation
+2. Algorithmic Problem Solving (C++, Python)
+3. Database Management System (SQL, Java, Python)
+4. Network Protocol Simulation (Python)
 5. Software Development Lifecycle Project
 <!-- Add or modify projects as you complete them -->
 
@@ -38,24 +38,24 @@ Here are some of the key projects included in this repository:
 - Code files are commented for better understanding.
 - You can clone this repository using:
   ```
-  git clone https://github.com/yourusername/SecondYear-CS2025.git
+  git clone https://github.com/Bloul-Mohamed/SecondYear-CS2025.git
   ```
 
 ## Tools and Technologies
 - Programming Languages: C++, Python, Java, SQL
 - Version Control: Git
-- Database: MySQL, PostgreSQL
-- IDEs: Visual Studio Code, IntelliJ IDEA
+- Database: MySQL 
+- IDEs: Visual Studio Code, IntelliJ IDEA, NVIM
 <!-- Add or modify tools and technologies as per your usage -->
 
 ## Contributing
 While this is primarily a personal academic repository, constructive feedback and suggestions are welcome. Please open an issue to discuss any changes you'd like to propose.
 
 ## Contact
-[Your Name] - [Your Email]
+[Mohamed] - [m.bloul.inf@lagh-univ.dz]
 
-Project Link: https://github.com/yourusername/SecondYear-CS2025
+Project Link: https://github.com/Bloul-Mohamed/SecondYear-CS2025
 
 ---
 
-© 2023-2024 [Your Name]. All Rights Reserved.
+© 2023-2024 [CS-Student]. All Rights Reserved.
