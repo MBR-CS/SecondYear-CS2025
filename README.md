@@ -74,5 +74,5 @@ While this is primarily a personal academic repository, constructive feedback an
 Project Link: https://github.com/Bloul-Mohamed/SecondYear-CS2025
 
 ---
-
+# 💤 LazyVim
 © 2023-2024 [CS-Student]. All Rights Reserved.
