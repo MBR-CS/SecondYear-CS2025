@@ -54,16 +54,58 @@ int SizeLinkedListLinear(list head){
     current = current->next;
   }
   return size;
+} 
+
+// create new function for get the position of the last (first) occurrence of an integer x in the list L
+int GetThePositionLastOccurrence(list head , int x){
+  int position= 0, current = 1;
+  list node = head;
+  while (node != nullptr) {
+    if (node->data == x) {
+      position = current;
+        
+      }  
+    node = node->next;
+    current++;
+  
+  }
+  return position;
+
 }
 
+// create function for Replaces all occurrences of the element x by an element y in the list L.
+
+void ReplaceAllOccurrences(list head , int x, int y){
+  list current = head ;
+  while (current != nullptr) {
+    if (current->data == x) {
+      current->data = y;
+    }
+    current = current->next;
+  }
+}
+
+
+
+
+
 int  main () {
-  int size;
+  int size,x,y;
   list head;
   cout << "please enter size of values: ";
   cin >> size;
   head = CreateLinkedListLinear(size);
   PrintValues(head);
   cout << "the size of linked list is: "<< SizeLinkedListLinear(head)<<" values"<<endl;
+  cout << "please enter number for get the position in lll:";
+  cin >> x;
+  cout << "the last position show value "<<x<<" is: "<< GetThePositionLastOccurrence(head, x)<<endl;
+  cout << "enter value x: ";
+  cin >> x;
+  cout << "enter value y: ";
+  cin >> y;
+  ReplaceAllOccurrences(head, x, y);
+  PrintValues(head);
   return 0;
 }
 
