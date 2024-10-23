@@ -16,7 +16,6 @@ struct node {
 list CreateLinkedListLinear(int size) {
     list head = nullptr;
     list current = nullptr;
-    
 
     for (int i = 0; i < size; i++) {
         list newNode = new node;
