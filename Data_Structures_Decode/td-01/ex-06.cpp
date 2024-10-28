@@ -43,3 +43,78 @@ void PrintValues(list head){
   }
   cout << endl;
 }
+
+list UniqueListInAnotherList(list head){
+list temp = head , headOdd=nullptr,headEven=nullptr,tempOdd=nullptr, tempEven=nullptr, Q=nullptr;
+while (temp != nullptr) {
+    if (temp->data % 2 == 0) { // even number check
+        tempEven = new node;
+        tempEven->next = nullptr;
+        tempEven->data = temp->data;
+        if (headEven == nullptr) {
+          headEven = tempEven;
+        }else {
+          Q->next  = tempEven;
+        }
+      Q = tempEven;
+    }
+    else {// otherwise  then odd number
+      tempOdd = new node;
+      tempOdd->next = headOdd;
+      tempOdd->data = temp->data;
+      headOdd = tempOdd;
+    }
+    temp = temp->next;
+
+  
+}
+  if (headEven == nullptr) {
+    return headOdd;
+  }else {
+    Q->next = headOdd;
+    return headEven;
+  }
+  
+}
+
+
+list SelfUniqueList(list head){
+  list temp = head  , before= head , newHead= head ;
+  while (temp != nullptr) {
+    if (temp->data % 2 == 0) {
+      before->next = temp->next;
+      temp->next = newHead;
+      newHead = temp;
+      temp = before->next;
+
+    }else {
+     before = temp;
+      temp = temp->next ;
+ 
+    }
+ }
+  return newHead;
+}
+
+
+
+
+int main () {
+  int size;
+  list head;
+  std::cout << "please enter size of linked list: ";
+  std::cin >> size;
+  head = CreateLinkedListLinear(size);
+  PrintValues(head);
+  head = SelfUniqueList(head);
+  //head = UniqueListInAnotherList(head);
+  PrintValues(head);
+  return 0;
+}
+
+
+
+
+
+
+
