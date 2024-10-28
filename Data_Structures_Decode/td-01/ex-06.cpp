@@ -81,7 +81,7 @@ while (temp != nullptr) {
 list SelfUniqueList(list head){
   list temp = head  , before= head , newHead= head ;
   while (temp != nullptr) {
-    if (temp->data % 2 == 0) {
+    if (temp->data % 2 == 0 && temp != newHead) {
       before->next = temp->next;
       temp->next = newHead;
       newHead = temp;
@@ -101,14 +101,18 @@ list SelfUniqueList(list head){
 
 int main () {
   int size;
-  list head;
+  list head, headAnother, headSelf;
   std::cout << "please enter size of linked list: ";
   std::cin >> size;
   head = CreateLinkedListLinear(size);
+  std::cout << "the core list"<<endl;
   PrintValues(head);
-  head = SelfUniqueList(head);
-  //head = UniqueListInAnotherList(head);
-  PrintValues(head);
+  headAnother = UniqueListInAnotherList(head);
+  std::cout << "method 1"<<endl;
+  PrintValues(headAnother);
+  headSelf = SelfUniqueList(headAnother);
+  std::cout << "method 2"<<endl;
+  PrintValues(headSelf);
   return 0;
 }
 
