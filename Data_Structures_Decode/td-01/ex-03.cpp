@@ -61,11 +61,17 @@ bool CheckAscendingOrder(list head){
 }
 
 // create new function for concatenats two linked list   
-list ConcatenatesTwoListInOneList(list  &mainList, list subList){
+list ConcatenatesTwoListInOneList(list  mainList, list subList){
+  list temp=mainList, l1 = mainList, l2 = subList;
 
+  while (temp->next != nullptr) {
+    temp = temp->next;
+  }
+  temp->next = l2;
+  return l1;
 }
 int main () {
-  list head;
+  list head,headSubList,headConcatenatsList;
   int size;
   bool ascendingCheck;
   cout << "please enter the size of linked list linear: ";
@@ -79,7 +85,12 @@ int main () {
   }else {
    cout << "the list is not ascending order!!"<<endl; 
   }
-
+  // call the second function 
+  cout << "please enter the size of sub list: ";
+  cin >> size;
+  headSubList = CreateLinkedListLinear(size);
+  headConcatenatsList = ConcatenatesTwoListInOneList(head, headSubList);
+  PrintValues(headConcatenatsList);
   
   return 0;
 }
