@@ -88,7 +88,7 @@ list SelfUniqueList(list head){
       temp = before->next;
 
     }else {
-     before = temp;
+      before = temp;
       temp = temp->next ;
  
     }
