@@ -10,6 +10,23 @@ struct node {
     char  data; 
     list next; 
 };
+list CreateLinkedListLinear(int size);
+void PrintValues(list head);
+int Frequency(list head , char c );
+char MostFrequency(list head);
+
+int main () {
+  int size, counter ;
+  char c, MostFrequencyChar ;
+  list head;
+  cout << "please enter size of values: ";
+  cin >> size;
+  head = CreateLinkedListLinear(size);
+  PrintValues(head);
+  MostFrequencyChar = MostFrequency(head) ;
+  cout << "The most Frequency is char "<< MostFrequencyChar  <<endl;
+  return 0;
+}
 
 
 // create function for take the size and create new linked list 
@@ -74,27 +91,4 @@ char MostFrequency(list head){
   return most;
   
 }
-
-
-
-
-
-
-int main () {
-  int size, counter ;
-  char c, MostFrequencyChar ;
-  list head;
-  cout << "please enter size of values: ";
-  cin >> size;
-  head = CreateLinkedListLinear(size);
-  PrintValues(head);
-  MostFrequencyChar = MostFrequency(head) ;
-  cout << "The most Frequency is char "<< MostFrequencyChar  <<endl;
-  return 0;
-}
-
-
-
-
-
 

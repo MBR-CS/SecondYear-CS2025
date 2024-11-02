@@ -10,6 +10,31 @@ struct node {
     int data; 
     list next; 
 };
+list CreateLinkedListLinear(int size); 
+void PrintValues(list head);
+int SizeLinkedListLinear(list head);
+int GetThePositionLastOccurrence(list head , int x);
+void ReplaceAllOccurrences(list head , int x, int y);
+
+int  main () {
+  int size,x,y;
+  list head;
+  cout << "please enter size of values: ";
+  cin >> size;
+  head = CreateLinkedListLinear(size);
+  PrintValues(head);
+  cout << "the size of linked list is: "<< SizeLinkedListLinear(head)<<" values"<<endl;
+  cout << "please enter number for get the position in lll:";
+  cin >> x;
+  cout << "the last position show value "<<x<<" is: "<< GetThePositionLastOccurrence(head, x)<<endl;
+  cout << "enter value x: ";
+  cin >> x;
+  cout << "enter value y: ";
+  cin >> y;
+  ReplaceAllOccurrences(head, x, y);
+  PrintValues(head);
+  return 0;
+}
 
 
 // create function for take the size and create new linked list 
@@ -87,26 +112,6 @@ void ReplaceAllOccurrences(list head , int x, int y){
 
 
 
-
-int  main () {
-  int size,x,y;
-  list head;
-  cout << "please enter size of values: ";
-  cin >> size;
-  head = CreateLinkedListLinear(size);
-  PrintValues(head);
-  cout << "the size of linked list is: "<< SizeLinkedListLinear(head)<<" values"<<endl;
-  cout << "please enter number for get the position in lll:";
-  cin >> x;
-  cout << "the last position show value "<<x<<" is: "<< GetThePositionLastOccurrence(head, x)<<endl;
-  cout << "enter value x: ";
-  cin >> x;
-  cout << "enter value y: ";
-  cin >> y;
-  ReplaceAllOccurrences(head, x, y);
-  PrintValues(head);
-  return 0;
-}
 
 
 

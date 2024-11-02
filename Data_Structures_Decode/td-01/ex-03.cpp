@@ -10,7 +10,35 @@ struct node {
     int data; 
     list next; 
 };
+list CreateLinkedListLinear(int size);
+void PrintValues(list head);
+ool CheckAscendingOrder(list head);
+list ConcatenatesTwoListInOneList(list  mainList, list subList);
 
+int main () {
+  list head,headSubList,headConcatenatsList;
+  int size;
+  bool ascendingCheck;
+  cout << "please enter the size of linked list linear: ";
+  cin >> size;
+  head = CreateLinkedListLinear(size);
+  PrintValues(head);
+  ascendingCheck = CheckAscendingOrder(head);
+  if (ascendingCheck == true) {
+    cout << "the list is ascending order "<<endl;
+    
+  }else {
+   cout << "the list is not ascending order!!"<<endl; 
+  }
+  // call the second function 
+  cout << "please enter the size of sub list: ";
+  cin >> size;
+  headSubList = CreateLinkedListLinear(size);
+  headConcatenatsList = ConcatenatesTwoListInOneList(head, headSubList);
+  PrintValues(headConcatenatsList);
+  
+  return 0;
+}
 
 // create function for take the size and create new linked list 
 list CreateLinkedListLinear(int size) {
@@ -69,29 +97,5 @@ list ConcatenatesTwoListInOneList(list  mainList, list subList){
   }
   temp->next = l2;
   return l1;
-}
-int main () {
-  list head,headSubList,headConcatenatsList;
-  int size;
-  bool ascendingCheck;
-  cout << "please enter the size of linked list linear: ";
-  cin >> size;
-  head = CreateLinkedListLinear(size);
-  PrintValues(head);
-  ascendingCheck = CheckAscendingOrder(head);
-  if (ascendingCheck == true) {
-    cout << "the list is ascending order "<<endl;
-    
-  }else {
-   cout << "the list is not ascending order!!"<<endl; 
-  }
-  // call the second function 
-  cout << "please enter the size of sub list: ";
-  cin >> size;
-  headSubList = CreateLinkedListLinear(size);
-  headConcatenatsList = ConcatenatesTwoListInOneList(head, headSubList);
-  PrintValues(headConcatenatsList);
-  
-  return 0;
 }
 

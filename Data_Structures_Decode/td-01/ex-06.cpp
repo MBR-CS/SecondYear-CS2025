@@ -11,6 +11,27 @@ struct node {
     list next; 
 };
 
+list CreateLinkedListLinear(int size);
+void PrintValues(list head);
+list UniqueListInAnotherList(list head);
+list SelfUniqueList(list head);
+
+int main () {
+  int size;
+  list head, headAnother, headSelf;
+  std::cout << "please enter size of linked list: ";
+  std::cin >> size;
+  head = CreateLinkedListLinear(size);
+  std::cout << "the core list"<<endl;
+  PrintValues(head);
+  headAnother = UniqueListInAnotherList(head);
+  std::cout << "method 1"<<endl;
+  PrintValues(headAnother);
+  headSelf = SelfUniqueList(headAnother);
+  std::cout << "method 2"<<endl;
+  PrintValues(headSelf);
+  return 0;
+}
 
 // create function for take the size and create new linked list 
 list CreateLinkedListLinear(int size) {
@@ -95,30 +116,4 @@ list SelfUniqueList(list head){
  }
   return newHead;
 }
-
-
-
-
-int main () {
-  int size;
-  list head, headAnother, headSelf;
-  std::cout << "please enter size of linked list: ";
-  std::cin >> size;
-  head = CreateLinkedListLinear(size);
-  std::cout << "the core list"<<endl;
-  PrintValues(head);
-  headAnother = UniqueListInAnotherList(head);
-  std::cout << "method 1"<<endl;
-  PrintValues(headAnother);
-  headSelf = SelfUniqueList(headAnother);
-  std::cout << "method 2"<<endl;
-  PrintValues(headSelf);
-  return 0;
-}
-
-
-
-
-
-
 

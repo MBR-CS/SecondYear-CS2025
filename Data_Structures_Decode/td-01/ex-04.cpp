@@ -10,6 +10,16 @@ struct node {
     int data; 
     list next; 
 };
+list CreateLinkedListLinear(int size);
+void PrintValues(list head);
+bool IsPrime(int n);
+list PrimeList(int N);
+
+
+int main () {
+  
+  return 0;
+}
 
 
 // create function for take the size and create new linked list 
@@ -43,3 +53,12 @@ void PrintValues(list head){
   }
   cout << endl;
 }
+
+
+bool IsPrime(int n){
+
+}
+list PrimeList(int N){
+
+}
+
