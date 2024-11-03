@@ -37,7 +37,6 @@ int  main () {
 }
 
 
-// create function for take the size and create new linked list 
 list CreateLinkedListLinear(int size) {
     list head = nullptr;
     list current = nullptr;
