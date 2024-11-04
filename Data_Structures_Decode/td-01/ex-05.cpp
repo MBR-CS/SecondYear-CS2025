@@ -51,7 +51,14 @@ int main () {
   head3 = DeleteAllDuplicates(head1);
   std::cout << "The linked list after deleting all duplicates is : ";
   PrintValues(head3);*/
-
+   cout << "Enter the size of the sub linked list: ";
+  cin >> size2;
+  head2 = CreateLinkedListLinear(size2);
+  std::cout << "The linked list is : ";
+  PrintValues(head2);
+  head3 = MergeLists(head1, head2);
+  PrintValues(head3);
+ 
 
 
   return 0;
@@ -137,18 +144,36 @@ list InvertList(list head){
 }
 
 list MergeLists(list head1, list head2){
-  list main = head2 , sub = head1, head3 = main ;
-  
-  if (head1->data < head2->data) {
-    main = head1;
-    sub = head2;
-    head3 = main;
-  }
-  while (main->next != nullptr) {
-    main = main->next;
-  }
-  main->next = sub;
-  return head3 ;
+list temp1 = head1 , temp2 = head2;
+list head3 = nullptr;
+list current = nullptr, newNode = nullptr ;
+int data ;
+
+    while (temp1!=nullptr && temp2 != nullptr) {
+        newNode = new node;
+        if (temp1->data < temp2->data) {
+          data = temp1->data;
+          temp1 = temp1->next;
+
+        }else {
+          data = temp2->data;
+          temp2 = temp2->next;
+        }
+        newNode->data = data;
+        newNode->next = nullptr;
+        if (head3 == nullptr)  
+          head3 = newNode;
+        else  
+          current->next = newNode;
+        current = newNode;
+    }
+    if (temp1 == nullptr) {
+      current->next = temp2;
+    }else {
+      
+      current->next = temp1;
+    }
+  return head3;
 }
 
 
