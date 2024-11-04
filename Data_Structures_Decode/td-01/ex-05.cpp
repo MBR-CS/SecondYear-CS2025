@@ -22,6 +22,8 @@ void ExplodeList(list head, list& head1, list& head2); // explode the linked lis
 list DeleteAllDuplicates(list head); // delete all duplicates in the linked list and return the new linked list 
 bool IsSublist(list head1, list head2); // check if the linked list is sublist of another linked list 
 
+bool SubListCheck(list main, list subHead);
+
 // main function
 int main () {
   list head1 = nullptr,head2= nullptr,head3 = nullptr;
@@ -56,9 +58,12 @@ int main () {
   head2 = CreateLinkedListLinear(size2);
   std::cout << "The linked list is : ";
   PrintValues(head2);
-  head3 = MergeLists(head1, head2);
-  PrintValues(head3);
- 
+  if (SubListCheck(head1,head2)) {
+     std::cout << "yes";
+   } else {
+     
+     std::cout <<"no" ;
+   }
 
 
   return 0;
@@ -232,6 +237,23 @@ list DeleteAllDuplicates(list head){
   return current;
 }
 
-
+bool SubListCheck(list main, list subHead){
+  list sub = subHead, temp = main; 
+  bool status = false;
+  while (sub != nullptr && temp != nullptr) {
+    if (temp->data == sub->data) {
+      sub = sub->next;
+      if (sub==nullptr) {
+        status = true;
+      }
+    }else {
+      sub = subHead;
+      status = false;
+      
+    }
+    temp = temp->next;
+  }
+  return status;
+} 
 
 
