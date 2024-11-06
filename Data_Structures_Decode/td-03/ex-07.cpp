@@ -5,16 +5,20 @@ using namespace std ;
   
 
 string ClearSpaces(string str, int &size);
-bool IsPalindrome(string st);
+bool IsPalindrome(string st ,int size, int start , int end);
 int main () {
-  string st;
+  int size = 0;
+  string st = "";
   cout << "Enter a string: ";
   getline(cin, st);
-  if (IsPalindrome(st)) {
-    cout << "The string is palindrome" << endl;
+  st = ClearSpaces(st, size);
+  if (IsPalindrome(st, size, 0, size - 1)) {
+    cout << "The string is a palindrome" << endl;
   }else {
-    cout << "The string is not palindrome!!" << endl;
+    cout << "The string is not a palindrome" << endl;
   }
+
+  
 
   return 0;
 }
@@ -23,23 +27,23 @@ string ClearSpaces(string str, int &size){
   string newStr = "";
   for(char c : str){ 
     if (c != ' '){ 
-      newStr += c;
+      newStr += tolower(c);
       size++;
     }
   }
   return newStr;
 }
 
-bool IsPalindrome(string st){
-  int size = 0;
-  st = ClearSpaces(st, size);
+bool IsPalindrome(string st ,int size, int start , int end){
   if (size < 2) 
     return false;
-  for (int i = 1; i <= (size / 2) ; i++) {
-     if (tolower(st[i-1]) != tolower(st[size-i])) 
-        return false;
-  }
-  return true; 
+  
+  if (start >= (size / 2) ) 
+    return true;
+
+  if (st[start] != st[end]) 
+    return false;
+  return IsPalindrome(st, size, start + 1, end - 1); 
 }
 
 
