@@ -1,59 +1,45 @@
 #include <iostream>
+
+#include <string>
 using namespace std ;  
   
 
-// create struct node
-struct node;
-using list = node*;
-
-struct node { 
-    int data; 
-    list next; 
-};
-
-
-void PrintValues(list head);
-list CreateLinkedListLinear(int size); 
-bool IsPalindrome(list head);
+string ClearSpaces(string str, int &size);
+bool IsPalindrome(string st);
 int main () {
+  string st;
+  cout << "Enter a string: ";
+  getline(cin, st);
+  if (IsPalindrome(st)) {
+    cout << "The string is palindrome" << endl;
+  }else {
+    cout << "The string is not palindrome!!" << endl;
+  }
+
   return 0;
 }
 
-
-
-list CreateLinkedListLinear(int size) {
-    list head = nullptr;
-    list current = nullptr;
-
-    for (int i = 0; i < size; i++) {
-        list newNode = new node;
-        cout << "Enter the value of node " << i + 1 << ": ";
-        cin >> newNode->data;
-        newNode->next = nullptr;
-        if (head == nullptr)  
-          head = newNode;
-        else  
-          current->next = newNode;
-        current = newNode;
+string ClearSpaces(string str, int &size){
+  string newStr = "";
+  for(char c : str){ 
+    if (c != ' '){ 
+      newStr += c;
+      size++;
     }
-    
-    return head;
-}
-
-// create new functino for print the linked list
-void PrintValues(list head){
-  list current = head;
-
-  while (current != nullptr) {
-    cout << current->data <<"  ";
-    current = current->next;
-
   }
-  cout << endl;
+  return newStr;
 }
 
-bool IsPalindrome(list head){
-
+bool IsPalindrome(string st){
+  int size = 0;
+  st = ClearSpaces(st, size);
+  if (size < 2) 
+    return false;
+  for (int i = 1; i <= (size / 2) ; i++) {
+     if (tolower(st[i-1]) != tolower(st[size-i])) 
+        return false;
+  }
+  return true; 
 }
 
 
