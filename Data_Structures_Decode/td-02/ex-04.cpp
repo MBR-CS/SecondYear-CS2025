@@ -4,62 +4,41 @@ using std::stack;
 using std::cout;
 using std::cin;
 using std::endl;
-
+using std::string;
 
 //NOTE: create  function prototypes
-void PrintStack(stack<int>& MyStack);
-void InitStack(stack<int>& MyStack);
-
-bool IsParenthesized(stack<char> &MyStack);
-
+bool IsParenthesized(string MyExpression);
 //NOTE: create  function main to test the above functions
 int main () {
-
+  // create array of stirng for test 
+  string expressions[] = {
+    "[([])]([()()])",
+    "[([()))])",
+    "[([(])[)(])]",
+    ")))]]","(([]"
+  };
+  for (string expression : expressions) {
+    cout << "The expression " << expression << " is " << (IsParenthesized(expression) ? "well parenthesized" : "bad parenthesized") << endl;
+  }
   return 0;
 }
 
-//NOTE: Core functions 
-
-void PrintStack(stack<int>& MyStack){
-  stack<int> temp;
-    
-    cout << "\n\n";
-    
-    while(!MyStack.empty()) {
-        cout << "| " << MyStack.top() << " |\n";
-        temp.push(MyStack.top());
-        MyStack.pop();
+bool IsParenthesized(string MyExpression) {
+  stack<char> MyStack;
+  for (char c : MyExpression) {
+    if (c == ')' || c == ']') {
+        if (MyStack.empty()) {
+            return false;
+        }else {
+              if ((MyStack.top() == '(' and c == ')') || (MyStack.top() == '[' and c == ']')) {
+                MyStack.pop(); 
+              }else {
+                return false;
+              }
+        }
+    }else if (c == '(' || c == '[') {
+      MyStack.push(c);
     }
-    
-    cout << "⎯⎯⎯⎯\n";
-    
-    while(!temp.empty()) {
-        MyStack.push(temp.top());
-        temp.pop();
-    }} 
-
-void InitStack(stack<int> &MyStack){
-  int size;
-  int element;
-  std::cout << "please enter the size of the stack: ";
-  std::cin >> size;
-
-  for (int i = 0; i < size; i++) {
-    std::cout << "please enter element " << i+1 << " :";
-    std::cin >> element;
-    MyStack.push(element);
   }
-}
-
-
-
-
-
-
-
-
-
-
-bool IsParenthesized(stack<char> &MyStack){
-
+  return MyStack.empty();
 }
