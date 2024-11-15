@@ -7,59 +7,53 @@ using std::endl;
 
 
 //NOTE: create  function prototypes
-void PrintStack(stack<int>& MyStack);
-stack<int> InitStack(int size);
+void PrintStack(stack<char>& MyStack);
+void InitStack(stack<char>& MyStack);
 int OccurrencesEven(stack<int>& MyStack);
 void RemoveAllOccurrences(stack<int>& MyStack, int x);
 
-
+void SorteStack(stack<int>& MyStack);
+int CountSubstring(stack<char>& MyStack);
 //NOTE: create  function main to test the above functions
 int main () {
-  stack<int> P;
-  int size;
-  int x;
-
-  std::cout << "please enter the size of the stack: ";
-  std::cin >> size;
-  P = InitStack(size);
-  std::cout << "the stack is :";
-  PrintStack(P);
-  std::cout << "the number of even elements in the stack is : " << OccurrencesEven(P) << std::endl;
-  /**/
-  std::cout << "please enter the element you want to remove from the stack: ";
-  std::cin >> x;
-  RemoveAllOccurrences(P, x);
-  std::cout << "the stack after removing all occurrences of " << x << " is :";
-  PrintStack(P);
+  stack<char> MyStack;
+  InitStack(MyStack);
+  PrintStack(MyStack);
+  cout << "The number of substrings is: " << CountSubstring(MyStack) << endl;
 
   return 0;
 }
 
 //NOTE: Core functions 
-void PrintStack(stack<int>& MyStack){
-  stack<int> helper;
-  int size = MyStack.size();
-  for (int i = 0; i < size; i++) {
-    helper.push(MyStack.top());
-    MyStack.pop();
-  }
-  for (int i = 0; i < size; i++) {
-    std::cout << helper.top() << " ";
-    MyStack.push(helper.top());
-    helper.pop();
-}
- std::cout << std::endl;
-} 
+void PrintStack(stack<char>& MyStack){
+  stack<char> temp;
+    
+    cout << "\n\n";
+    
+    while(!MyStack.empty()) {
+        cout << "| " << MyStack.top() << " |\n";
+        temp.push(MyStack.top());
+        MyStack.pop();
+    }
+    
+    cout << "⎯⎯⎯⎯\n";
+    
+    while(!temp.empty()) {
+        MyStack.push(temp.top());
+        temp.pop();
+    }} 
 
-stack<int> InitStack(int size){
-  stack<int> MyStack;
-  int element;
+void InitStack(stack<char> &MyStack){
+  int size;
+  char element;
+  std::cout << "please enter the size of the stack: ";
+  std::cin >> size;
+
   for (int i = 0; i < size; i++) {
     std::cout << "please enter element " << i+1 << " :";
     std::cin >> element;
     MyStack.push(element);
   }
-  return MyStack;
 }
 
 
@@ -105,18 +99,41 @@ void RemoveAllOccurrences(stack<int> &MyStack, int x){
 
 //NOTE: create  function definitions for exercise 03: 
 
-
-
-
-
-
-
-
+int CountSubstring(stack<char> &MyStack) {
+    int counter = 0;
+    char prev = '!'; 
+    while (!MyStack.empty()) {
+        char current = MyStack.top();
+        if (current == 'b' && prev == 'e') {
+            counter++;
+        }
+        prev = current;
+        MyStack.pop();
+    }
+    return counter;
+} 
 
 //NOTE: create  function definitions for exercise 04: 
 
+void SorteStack(stack<int> &MyStack){
+  stack<int> helper; 
+  int temp;
 
+  while (!MyStack.empty()) {
+    temp = MyStack.top();
+    MyStack.pop();
+    while (!helper.empty() && temp < helper.top()) {
+        MyStack.push(helper.top());
+        helper.pop();
+    }
+    helper.push(temp);
+  }
 
+  while (!helper.empty()) {
+    MyStack.push(helper.top());
+    helper.pop();
+  }
 
+} 
 
 
