@@ -7,26 +7,51 @@ using std::endl;
 
 
 //NOTE: create  function prototypes
-void PrintStack(stack<char>& MyStack);
-void InitStack(stack<char>& MyStack);
-int OccurrencesEven(stack<int>& MyStack);
-void RemoveAllOccurrences(stack<int>& MyStack, int x);
+template <typename T>
+void PrintStack(stack<T>& MyStack);
 
-void SorteStack(stack<int>& MyStack);
-int CountSubstring(stack<char>& MyStack);
+template <typename T>
+void InitStack(stack<T>& MyStack);
+
+template <typename T>
+int OccurrencesEven(stack<T>& MyStack);
+
+template <typename T>
+void RemoveAllOccurrences(stack<T>& MyStack, T x);
+
+template <typename T>
+void SorteStack(stack<T>& MyStack);
+
+template <typename T>
+int CountSubstring(stack<T>& MyStack);
+
 //NOTE: create  function main to test the above functions
 int main () {
-  stack<char> MyStack;
-  InitStack(MyStack);
-  PrintStack(MyStack);
-  cout << "The number of substrings is: " << CountSubstring(MyStack) << endl;
+    stack<char> MyCharStack;
+    InitStack(MyCharStack);
+    PrintStack(MyCharStack);
+    cout << "The number of substrings 'be' is: " << CountSubstring(MyCharStack) << endl;
+
+    stack<int> MyIntStack;
+    InitStack(MyIntStack);
+    cout << "Number of even elements: " << OccurrencesEven(MyIntStack) << endl;
+    cout << "Enter the element you want to remove: ";
+    int element;
+    cin >> element;
+    RemoveAllOccurrences(MyIntStack, element);
+    cout << "After removing : ";
+    PrintStack(MyIntStack);
+    SorteStack(MyIntStack);
+    cout << "Sorted stack: ";
+    PrintStack(MyIntStack);
 
   return 0;
 }
 
 //NOTE: Core functions 
-void PrintStack(stack<char>& MyStack){
-  stack<char> temp;
+template <typename T>
+void PrintStack(stack<T>& MyStack){
+  stack<T> temp;
     
     cout << "\n\n";
     
@@ -43,9 +68,10 @@ void PrintStack(stack<char>& MyStack){
         temp.pop();
     }} 
 
-void InitStack(stack<char> &MyStack){
+template <typename T>
+void InitStack(stack<T> &MyStack){
   int size;
-  char element;
+  T element;
   std::cout << "please enter the size of the stack: ";
   std::cin >> size;
 
@@ -58,8 +84,9 @@ void InitStack(stack<char> &MyStack){
 
 
 //NOTE: create  function definitions for exercise 01
-int OccurrencesEven(stack<int> &MyStack){
-  stack<int> helper;
+template <typename T>
+int OccurrencesEven(stack<T> &MyStack){
+  stack<T> helper;
   int counter = 0 , size = MyStack.size();
   for (int i = 0; i < size; i++) {
     if (MyStack.top() % 2 == 0) {
@@ -78,9 +105,9 @@ int OccurrencesEven(stack<int> &MyStack){
 
 
 //NOTE: create  function definitions for exercise 02:
-
-void RemoveAllOccurrences(stack<int> &MyStack, int x){
-  stack<int> helper;
+template <typename T>
+void RemoveAllOccurrences(stack<T> &MyStack, T  x){
+  stack<T> helper;
   int size = MyStack.size();
   for (int  i = 0; i < size; i++) {
     if (MyStack.top() != x) {
@@ -99,11 +126,12 @@ void RemoveAllOccurrences(stack<int> &MyStack, int x){
 
 //NOTE: create  function definitions for exercise 03: 
 
-int CountSubstring(stack<char> &MyStack) {
+template <typename T>
+int CountSubstring(stack<T> &MyStack) {
     int counter = 0;
-    char prev = '!'; 
+    T prev = '!'; 
     while (!MyStack.empty()) {
-        char current = MyStack.top();
+        T current = MyStack.top();
         if (current == 'b' && prev == 'e') {
             counter++;
         }
@@ -114,10 +142,11 @@ int CountSubstring(stack<char> &MyStack) {
 } 
 
 //NOTE: create  function definitions for exercise 04: 
+template <typename T>
 
-void SorteStack(stack<int> &MyStack){
-  stack<int> helper; 
-  int temp;
+void SorteStack(stack<T> &MyStack){
+  stack<T> helper; 
+  T temp;
 
   while (!MyStack.empty()) {
     temp = MyStack.top();
