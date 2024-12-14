@@ -143,3 +143,35 @@ void SorteQueue(queue<int> &MyQueue ){
     }   
 }
 
+
+void SortedQueueUsingStack(queue<int> &MyQueue){
+  stack<int> helper;
+  int size ;
+  while (!MyQueue.empty()) {
+    helper.push(MyQueue.front());
+    MyQueue.pop();
+    size = MyQueue.size();
+    for (int i = 0; i < size; i++) {
+      if () {
+        
+      }else {
+        
+      }
+
+    }   
+  }
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
