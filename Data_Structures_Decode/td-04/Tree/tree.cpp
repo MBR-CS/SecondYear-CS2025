@@ -1,5 +1,6 @@
 #include "tree.h"
 #include <iostream>
+#include <queue>
 using namespace std;
 
 bool IsEmptyTree(tree root) {
@@ -24,52 +25,51 @@ tree RightSubTree(tree root) {
     return root->right;
 }
 
-tree CreateBinaryTree(tree &root, int &currentSize, int maxSize) {
-    if (currentSize >= maxSize) {
-        return nullptr;
-    }
+void InsertTree(tree &root, int Value) {
+  tree temp = nullptr ;
+  queue<tree> helper;
+  if (!root) {
+    root = new node(Value);
+    return;
+  }
+  helper.push(root);
 
-    int value;
-    std::cout << "Enter value for node (-1 to skip this node): ";
-    std::cin >> value;
+  while (!helper.empty()) {
+    temp = helper.front();
+    helper.pop();
 
-    if (value == -1) {
-        return nullptr;
-    }
-
-    root = new node(value);
-    currentSize++;  // Increment size counter
-
-    std::cout << "\nCreating left child for node " << value
-              << " (Current size: " << currentSize << "/" << maxSize << ")" << std::endl;
-    root->left = CreateBinaryTree(root->left, currentSize, maxSize);
-
-    std::cout << "\nCreating right child for node " << value
-              << " (Current size: " << currentSize << "/" << maxSize << ")" << std::endl;
-    root->right = CreateBinaryTree(root->right, currentSize, maxSize);
-
-    return root;
-}
-void printBinaryTree(tree  root, int space = 0, int height = 10){
-    // Base case
-    if (root == nullptr) {
+    if (!LeftSubTree(temp)) {
+        temp->left = new node(Value);
         return;
+    }else {
+        helper.push(temp->left);
     }
+    if (!RightSubTree(temp)) {
+        temp->right = new node(Value);
+        return;
+    }else {
+        helper.push(temp->right);
+    }   
+  }
+}
 
-    // now increase distance between levels
-    space += height;
+void InitTree(tree &root){
+  std::cout << "enter the number of nodes in the tree: "  ;
+  int n;
+  std::cin >> n;
+  for (int i = 0; i < n; i++){
+    int value;
+    cout << "enter the value of the node: ";
+    std::cin >> value;
+    InsertTree(root, value);
+  }
+}
 
-    // print the right child first
-    printBinaryTree(root->right, space);
-    cout << endl;
 
-    // print the current node after increasing with spaces
-    for (int i = height; i < space; i++) {
-        cout << ' ';
-    }
-    cout << root->data;
 
-    // print the left child
-    cout << endl;
-    printBinaryTree(root->left, space);
+
+
+
+void printBinaryTree(tree  root, int space = 0, int height = 10){
+
 }

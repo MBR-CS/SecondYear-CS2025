@@ -61,7 +61,11 @@ tree RightSubTree(tree root );
   *   @param int maxSize
   *   @return tree
  */
- tree CreateBinaryTree(tree &root, int &currentSize, int maxSize);
+
+void InsertTree(tree &root, int Value); 
+
+void InitTree(tree &root);
+
 
 /**
   * - print the binary tree
