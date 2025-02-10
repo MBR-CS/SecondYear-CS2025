@@ -8,7 +8,7 @@
 
 
 
-    # Print prompt message
+    # Printprompt message
     li $v0, 4           # syscall code for print_string
     la $a0, prompt      # load address of prompt string
     syscall
